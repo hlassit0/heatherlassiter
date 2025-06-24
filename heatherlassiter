@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heather Lassiter - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        /* Styles for the modal overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow-y: auto; /* Allow scrolling within the overlay */
+        }
+        /* Styles for the modal content */
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+            width: 90%;
+            max-width: 800px; /* Max width for readability */
+            position: relative;
+            max-height: 90vh; /* Max height to fit viewport, allows scrolling */
+            overflow-y: auto; /* Enable scrolling for content within the modal */
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4b5563; /* text-gray-600 */
+            transition: color 0.2s;
+        }
+        .modal-close-button:hover {
+            color: #ef4444; /* text-red-500 */
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation Bar -->
+        <nav class="bg-white shadow-md p-4 md:p-6 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-gray-700 text-lg md:text-xl font-semibold">&lt;/&gt;</span>
+                <span class="text-gray-800 text-lg md:text-xl font-semibold">Heather Lassiter</span>
+            </div>
+            <!-- Top-right navigation icons were removed as requested -->
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="bg-gradient-to-r from-pink-100 to-purple-50 flex-grow py-12 md:py-20 lg:py-24 px-4 md:px-8 lg:px-16 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-12">
+            <div class="text-center lg:text-left max-w-lg lg:max-w-xl">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                    <i class="fas fa-graduation-cap text-pink-500 mr-3"></i>Computer Science Student
+                </h1>
+                <p class="mt-6 text-base md:text-lg text-gray-700 leading-relaxed">
+                    I’ve always been curious about how things work—especially people and systems. That curiosity led me to cybersecurity, where I get to explore how we protect what matters in an increasingly digital world. Lately, I’ve been especially interested in the future of brain-computer interfaces and how we can keep emerging tech safe, ethical, and human-centered. I care deeply about child safety, cognitive health, and making sure that innovation doesn’t outpace our values. Outside of that, I love structure, learning new things, and finding beauty in the details—whether it’s through design, routines, or writing.
+                </p>
+                <div class="mt-6 text-sm md:text-base text-gray-600">
+                    <i class="fas fa-chevron-right text-pink-500 mr-2"></i>Learning: Network Security, Programming, Security Fundamentals
+                </div>
+                <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start">
+                    <!-- Updated button to link to the projects section -->
+                    <a href="#my-projects" class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
+                        View My Projects
+                    </a>
+                    <!-- Updated button to link to the learning journey section -->
+                    <a href="#learning-journey" class="bg-white border border-gray-300 text-gray-800 hover:bg-gray-50 font-medium py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300">
+                        Learning Journey
+                    </a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 flex justify-center items-center">
+                <!-- No image here, as per request -->
+            </div>
+        </header>
+
+        <!-- What I'm Learning Section -->
+        <section class="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-white">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">What I'm Learning</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <!-- Card 1: Currently Learning -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-start hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-book-open text-pink-500 mr-3"></i>Currently Learning
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Network Security Basics</li>
+                        <li>Linux Fundamentals</li>
+                        <li>Python Programming</li>
+                        <li>Security Concepts</li>
+                    </ul>
+                </div>
+                <!-- Card 2: Tools I'm Learning -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-start hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-tools text-purple-500 mr-3"></i>Tools I'm Learning
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Wireshark Basics</li>
+                        <li>Virtual Machines</li>
+                        <li>Command Line</li>
+                        <li>Basic Security Tools</li>
+                    </ul>
+                </div>
+                <!-- Card 3: Programming -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-start hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-code text-blue-500 mr-3"></i>Programming
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Python</li>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                        <li>Basic Scripting</li>
+                    </ul>
+                </div>
+                <!-- Card 4: Security Interests -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-start hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-shield-alt text-green-500 mr-3"></i>Security Interests
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Ethical Hacking</li>
+                        <li>Network Defense</li>
+                        <li>Security Best Practices</li>
+                        <li>Cybersecurity Basics</li>
+                    </ul>
+                </div>
+                <!-- Card 5: Networking -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-start hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-network-wired text-orange-500 mr-3"></i>Networking
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>TCP/IP Basics</li>
+                        <li>Network Protocols</li>
+                        <li>Basic Network Setup</li>
+                        <li>Network Security</li>
+                    </ul>
+                </div>
+                <!-- Card 6: Course Topics -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md flex flex-col items-start hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-laptop-code text-red-500 mr-3"></i>Course Topics
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Database Security</li>
+                        <li>Operating Systems</li>
+                        <li>Computer Networks</li>
+                        <li>Information Security</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Journey Section -->
+        <section id="learning-journey" class="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-r from-blue-50 to-indigo-50">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">My Learning Journey</h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    My journey into Computer Science has been driven by curiosity and a desire to understand how technology shapes our world. Initially drawn to the logical problem-solving aspects of programming, I quickly found myself fascinated by the intricate world of cybersecurity.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Each course and project has built upon the last, deepening my understanding of secure systems, network vulnerabilities, and ethical defense strategies. I believe continuous learning is key in this rapidly evolving field, and I'm always seeking new challenges and opportunities to expand my knowledge and practical skills.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Highlights of my journey include:
+                </p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mt-4">
+                    <li>Completing foundational courses in programming and data structures.</li>
+                    <li>Diving into network security and understanding threat landscapes.</li>
+                    <li>Exploring ethical hacking techniques in a controlled environment.</li>
+                    <li>Building small applications to apply theoretical concepts.</li>
+                    <li>Earning professional certifications that validate my skills.</li>
+                </ul>
+                <p class="text-center mt-8 text-gray-600 text-sm">
+                    This section is a brief overview. For more details on specific courses or experiences, please refer to my projects and certifications below!
+                </p>
+            </div>
+        </section>
+
+        <!-- My Learning Projects Section -->
+        <section id="my-projects" class="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">My Learning Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Project Card 1: Learning Linux & Virtual Machines -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer" onclick="openModal('linuxVmModal')">
+                    <!-- Removed image placeholder -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Learning Linux & Virtual Machines</h3>
+                            <p class="text-gray-700 text-sm mb-4">
+                                Setting up my first virtual machine environment to learn Linux commands and basic security tools. Documenting my learning journey and basic security concepts.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded-full">VirtualBox</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Ubuntu</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Basic Commands</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Security Tools</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Simple Password Checker (with link) -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer" onclick="openModal('passwordCheckerModal')">
+                    <!-- Removed image placeholder -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Simple Password Checker</h3>
+                            <p class="text-gray-700 text-sm mb-4">
+                                A beginner Python project where I'm learning about password security. Checks password strength and basic security requirements.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Basic Security</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Input Validation</span>
+                        </div>
+                        <a href="https://passwordstrengthchecker.com" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-pink-500 hover:underline font-medium text-sm">
+                            View Live Demo <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Network Learning Projects -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer" onclick="openModal('networkProjectsModal')">
+                    <!-- Removed image placeholder -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Network Learning Projects</h3>
+                            <p class="text-gray-700 text-sm mb-4">
+                                Collection of small projects as I learn about networks. Includes basic network scanning and understanding network security fundamentals.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Networking</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Security Basics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4: EEG Data Analysis -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer" onclick="openModal('eegModal')">
+                    <!-- Removed image placeholder -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">EEG Data Analysis</h3>
+                            <p class="text-gray-700 text-sm mb-4">
+                                Explored EEG (Electroencephalography) data processing using MNE-Python, including filtering, epoching, and power spectral density analysis to extract alpha band power.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">MNE-Python</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Data Analysis</span>
+                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Signal Processing</span>
+                        </div>
+                        <a href="https://github.com/hlassit0/EEGCode" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-pink-500 hover:underline font-medium text-sm">
+                            View Code (GitHub) <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 5: Music Database Management -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer" onclick="openModal('musicDbModal')">
+                    <!-- Removed image placeholder -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Music Database Management</h3>
+                            <p class="text-gray-700 text-sm mb-4">
+                                Designed and implemented a MySQL database schema for music artists, albums, and songs. Includes views for popular songs, demonstrating SQL querying and database design.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">SQL</span>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">MySQL</span>
+                            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Database Design</span>
+                            <span class="bg-lime-100 text-lime-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Data Management</span>
+                        </div>
+                        <a href="https://github.com/hlassit0/billboardsql" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-pink-500 hover:underline font-medium text-sm">
+                            View Schema (GitHub) <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Achievements Section -->
+        <section class="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-white">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">Certifications & Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Certificate Card 1: Microsoft Security Essentials -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <!-- Removed image placeholder -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Microsoft Security Essentials Professional Certificate</h3>
+                            <p class="text-gray-700 text-sm mb-2">
+                                Completed through Microsoft and LinkedIn Learning on June 13, 2025.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Microsoft</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">LinkedIn Learning</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Cybersecurity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate Card 2: IBM SkillsBuild AI Solutions -->
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <!-- Removed image placeholder -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Building AI Solutions Using Advanced Algorithms and Open Source Frameworks</h3>
+                            <p class="text-gray-700 text-sm mb-2">
+                                An eLearning activity from IBM SkillsBuild, completed June 16, 2025 (20 hours).
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">IBM SkillsBuild</span>
+                            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">AI</span>
+                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Algorithms</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Me Section -->
+        <section id="contact-me" class="py-16 md:py-20 px-4 md:px-8 lg:px-16 bg-gray-100">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">Contact Me</h2>
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg text-center">
+                <p class="text-lg text-gray-700 mb-4">
+                    I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!
+                </p>
+                <div class="space-y-4">
+                    <p class="text-gray-800 text-xl font-semibold">
+                        <i class="fas fa-envelope text-pink-500 mr-3"></i>Email: <a href="mailto:lassitermheather@gmail.com" class="text-blue-600 hover:underline">lassitermheather@gmail.com</a>
+                    </p>
+                    <p class="text-gray-800 text-xl font-semibold">
+                        <i class="fab fa-linkedin text-pink-500 mr-3"></i>LinkedIn: <a href="https://www.linkedin.com/in/heather-lassiter/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">linkedin.com/in/heather-lassiter/</a>
+                    </p>
+                    <p class="text-gray-800 text-xl font-semibold">
+                        <i class="fab fa-github text-pink-500 mr-3"></i>GitHub: <a href="https://github.com/hlassit0" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">github.com/hlassit0</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-6 mt-auto">
+            <div class="container mx-auto text-center text-sm">
+                &copy; 2025 Heather Lassiter. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals for each project -->
+    <div id="linuxVmModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('linuxVmModal')">&times;</button>
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Learning Linux & Virtual Machines</h3>
+            <p class="text-gray-700 mb-4">
+                This project involved setting up and configuring a virtual machine (using VirtualBox) with an Ubuntu Linux environment. I focused on understanding fundamental Linux commands, navigating the file system, managing processes, and installing basic security tools. This foundational work is crucial for any cybersecurity enthusiast, providing a sandboxed environment to experiment without affecting the host system.
+            </p>
+            <p class="text-gray-700 mb-4">
+                Key learning points included:
+                <ul class="list-disc list-inside ml-4 mt-2 text-gray-700">
+                    <li>Virtualization concepts and benefits.</li>
+                    <li>Basic Linux shell commands (ls, cd, mkdir, rm, mv, cp).</li>
+                    <li>User and permission management.</li>
+                    <li>Package management (apt-get).</li>
+                    <li>Introduction to network configuration within a VM.</li>
+                </ul>
+            </p>
+            <!-- Add more content, images, diagrams, etc. here as you develop the project -->
+            <div class="flex flex-wrap gap-2 mt-6">
+                <span class="bg-pink-100 text-pink-800 text-sm font-medium px-2.5 py-0.5 rounded-full">VirtualBox</span>
+                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Ubuntu</span>
+                <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Linux</span>
+                <span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Command Line</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="passwordCheckerModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('passwordCheckerModal')">&times;</button>
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Simple Password Checker</h3>
+            <p class="text-gray-700 mb-4">
+                This Python project is an early exploration into password security principles. It's a command-line tool that evaluates the strength of a given password based on criteria like length, presence of uppercase/lowercase letters, numbers, and special characters. It provides instant feedback, helping users understand common vulnerabilities.
+            </p>
+            <p class="text-gray-700 mb-4">
+                Through this project, I gained a better understanding of:
+                <ul class="list-disc list-inside ml-4 mt-2 text-gray-700">
+                    <li>String manipulation in Python.</li>
+                    <li>Conditional logic and regular expressions for pattern matching.</li>
+                    <li>Basic security best practices for password creation.</li>
+                    <li>User input validation and error handling.</li>
+                </ul>
+            </p>
+            <a href="https://passwordstrengthchecker.com" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-pink-500 hover:underline font-medium text-lg">
+                View Live Demo <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+            <div class="flex flex-wrap gap-2 mt-6">
+                <span class="bg-pink-100 text-pink-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Security</span>
+                <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Input Validation</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="networkProjectsModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('networkProjectsModal')">&times;</button>
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Network Learning Projects</h3>
+            <p class="text-gray-700 mb-4">
+                This collection encompasses various small projects aimed at understanding core networking concepts and their security implications. Projects include basic port scanning, network topology mapping (simulated), and analyzing packet captures using Wireshark to identify common protocols and potential anomalies.
+            </p>
+            <p class="text-gray-700 mb-4">
+                Key areas of focus in these projects:
+                <ul class="list-disc list-inside ml-4 mt-2 text-gray-700">
+                    <li>TCP/IP model and common network protocols (HTTP, DNS, ARP).</li>
+                    <li>Introduction to network reconnaissance techniques.</li>
+                    <li>Packet analysis fundamentals.</li>
+                    <li>Understanding network vulnerabilities and defensive strategies.</li>
+                </ul>
+            </p>
+            <!-- Add more content, diagrams, or code snippets here -->
+            <div class="flex flex-wrap gap-2 mt-6">
+                <span class="bg-pink-100 text-pink-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Networking</span>
+                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Wireshark</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="eegModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('eegModal')">&times;</button>
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">EEG Data Analysis</h3>
+            <p class="text-gray-700 mb-4">
+                This project involved processing and analyzing EEG (Electroencephalography) data using the MNE-Python library. I focused on common signal processing steps such as filtering raw EEG data to remove artifacts, epoching continuous data into event-related segments, and performing power spectral density analysis to identify and quantify neural oscillations, particularly in the alpha band ($8-12\text{ Hz}$).
+            </p>
+            <p class="text-gray-700 mb-4">
+                This work provided hands-on experience with:
+                <ul class="list-disc list-inside ml-4 mt-2 text-gray-700">
+                    <li>Biosignal processing fundamentals.</li>
+                    <li>Using the MNE-Python library for neuroimaging data.</li>
+                    <li>Time-frequency analysis and interpretation of EEG features.</li>
+                    <li>Applying scientific programming techniques in Python.</li>
+                </ul>
+            </p>
+            <a href="https://github.com/hlassit0/EEGCode" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-pink-500 hover:underline font-medium text-sm">
+                View Code (GitHub) <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+            </a>
+            <div class="flex flex-wrap gap-2 mt-6">
+                <span class="bg-red-100 text-red-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-2.5 py-0.5 rounded-full">MNE-Python</span>
+                <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Data Analysis</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="musicDbModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal('musicDbModal')">&times;</button>
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Music Database Management</h3>
+            <p class="text-gray-700 mb-4">
+                In this project, I designed and implemented a relational database schema using MySQL for managing music-related data, including artists, albums, and songs. The project involved creating tables, defining relationships (e.g., one-to-many between artists and albums, albums and songs), and populating the database with sample data.
+            </p>
+            <p class="text-gray-700 mb-4">
+                A key part of this project was developing SQL queries to retrieve specific information, such as:
+                <ul class="list-disc list-inside ml-4 mt-2 text-gray-700">
+                    <li>Retrieving songs by a specific artist.</li>
+                    <li>Listing albums released in a particular year.</li>
+                    <li>Creating views for aggregated data, like "Top 100 Songs" based on a `chart_position` field.</li>
+                </ul>
+            </p>
+            <a href="https://github.com/hlassit0/billboardsql" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-pink-500 hover:underline font-medium text-sm">
+                View Schema (GitHub) <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+            </a>
+            <div class="flex flex-wrap gap-2 mt-6">
+                <span class="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-full">SQL</span>
+                <span class="bg-red-100 text-red-800 text-sm font-medium px-2.5 py-0.5 rounded-full">MySQL</span>
+                <span class="bg-orange-100 text-orange-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Database Design</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to open a specific modal
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling the body when modal is open
+        }
+
+        // Function to close a specific modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = ''; // Restore body scrolling
+        }
+
+        // Optional: Close modal when clicking outside the content
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(event) {
+                if (event.target === overlay) {
+                    closeModal(overlay.id);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
